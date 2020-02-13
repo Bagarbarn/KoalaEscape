@@ -34,7 +34,7 @@ public class ParallaxScrolling : MonoBehaviour
 
     private void Swap()
     {
-        backgrounds_[0].transform.position = new Vector2(0, backgrounds_[last_index_].GetComponent<SpriteRenderer>().bounds.max.y - distance_);
+        backgrounds_[0].transform.position = new Vector2(0, backgrounds_[last_index_].GetComponent<SpriteRenderer>().bounds.max.y - distance_ * 1.5f);
         GameObject temp = backgrounds_[last_index_];
         backgrounds_[2] = backgrounds_[1];
         backgrounds_[1] = backgrounds_[0];
