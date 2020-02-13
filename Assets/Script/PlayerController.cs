@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour
     {
 
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = -1; //Input.GetAxis("Vertical");
+        //float moveVertical = -1; //Input.GetAxis("Vertical");
   
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        Vector2 movement = new Vector2(moveHorizontal, 0);
         rb2d.AddForce(movement * speed);
 
     }
