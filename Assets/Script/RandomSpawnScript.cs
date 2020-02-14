@@ -5,7 +5,8 @@ using UnityEngine;
 public class RandomSpawnScript : MonoBehaviour
 {
     //Prefabs to instantiate 
-    public GameObject Tree, Boulder, Fire;
+
+    public GameObject[] obstacles;
 
     //Spawn Prefab once per 2 seconds 
     public float spawnRate = 2f;
@@ -19,30 +20,30 @@ public class RandomSpawnScript : MonoBehaviour
     float randX;
     Vector2 whereToSpawn;
 
+    private void Start()
+    {
+        for(int i = 0; i < obstacles.Length; i++)
+        {
+           // obstacles[i] = Instantiate(obstacles[i]);
+            //obstacles[i].SetActive(false);
+        }
+    }
+
 
     private void Update()
     {
         if (Time.time > nextSpawn) { //if time has come
-            whatToSpawn = Random.Range(1, 4); //Define random value between 1 and 5 (6 is exclusive)
+            whatToSpawn = Random.Range(0, obstacles.Length); //Define random value between 1 and 5 (6 is exclusive)
             Debug.Log(whatToSpawn); //Display it's value in console  
             randX = Random.Range(-4f, 4f);
-            whereToSpawn = new Vector2(randX, transform.position.y);
+            whereToSpawn = new Vector3(randX, transform.position.y, -1f);
 
-            switch (whatToSpawn)
-            {
-                case 1:
-                    Instantiate(Tree, transform.position, Quaternion.identity);
-                    break;
-                case 2:
-                    Instantiate(Boulder, transform.position, Quaternion.identity);
-                    break;
-                case 3:
-                    Instantiate(Fire, transform.position, Quaternion.identity);
-                    break;
-            }
+            Instantiate(obstacles[whatToSpawn], transform.position, Quaternion.identity);
+
             //set next spawntime
             nextSpawn = Time.time + spawnRate;
         }
+        
     }
 
 

@@ -271,7 +271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223766859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1479406702}
@@ -1189,9 +1189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8d3bcb9ff09a5448ff6eaa30f0b064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tree: {fileID: 5785832692511271683, guid: 361d52f836e0a13438124da17f48006e, type: 3}
-  Boulder: {fileID: 2819281131450891386, guid: f4635b3dacb163b49b1bc9ce260dc26d, type: 3}
-  Fire: {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
+  obstacles:
+  - {fileID: 5785832692511271683, guid: 361d52f836e0a13438124da17f48006e, type: 3}
+  - {fileID: 2819281131450891386, guid: f4635b3dacb163b49b1bc9ce260dc26d, type: 3}
+  - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
   spawnRate: 1
 --- !u!4 &1430806024
 Transform:
@@ -1201,7 +1202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430806022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: -1}
+  m_LocalPosition: {x: 0, y: -20, z: -1}
   m_LocalScale: {x: 1.9058987, y: 1.877716, z: 1.5961901}
   m_Children: []
   m_Father: {fileID: 238529911}
