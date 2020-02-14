@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedHorizontal: 15
-  moveSpeedVertical: 5
+  moveSpeedVertical: 10
   circleCollider2D: {fileID: 238529913}
 --- !u!212 &238529910
 SpriteRenderer:
