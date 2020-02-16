@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ParallaxScrolling : MonoBehaviour
 {
-    public List<GameObject> backgrounds_;
+    public List<GameObject> backgrounds_=new List<GameObject>();
     private float distance_;
     private GameObject player_;
     private int last_index_;
+    public int counter=0;
+
+    private void Awake()
+    {
+        player_ = GameObject.FindGameObjectWithTag("Player");
+    }
+
 
     private void Start()
     {
-        player_ = GameObject.FindGameObjectWithTag("Player");
-
         for(int i = 0; i < transform.childCount; i++)
         {
             backgrounds_.Add(transform.GetChild(i).gameObject);
@@ -34,6 +39,7 @@ public class ParallaxScrolling : MonoBehaviour
 
     private void Swap()
     {
+        counter++;
         backgrounds_[0].transform.position = new Vector2(0, backgrounds_[last_index_].GetComponent<SpriteRenderer>().bounds.max.y - distance_ * 1.5f);
         GameObject temp = backgrounds_[last_index_];
         backgrounds_[2] = backgrounds_[1];

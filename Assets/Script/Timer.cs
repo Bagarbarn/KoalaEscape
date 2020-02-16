@@ -9,9 +9,22 @@ public class Timer : MonoBehaviour
     public float maxTimer;
     float timer;
     public Text timerText;
+    public GameObject loseScreen;
+    bool GameOver;
+    ParallaxScrolling parallaxScrolling;
+    public Text loseWinText;
+    [SerializeField]
+    string losingText;
+    [SerializeField]
+    string winningText;
+    [Tooltip("Keep the value even always")]
+    public int counterRequired;
 
     void Awake()
     {
+        parallaxScrolling = FindObjectOfType<ParallaxScrolling>();
+        Time.timeScale = 1;
+        loseScreen.SetActive(false);
         timer = maxTimer;
     }
 
@@ -26,5 +39,17 @@ public class Timer : MonoBehaviour
         string minutes = Mathf.Floor(timer / 60).ToString("00");
         string seconds = (timer % 60).ToString("00");
         timerText.text = "Time Left: " + minutes + ":" + seconds ;
+        if (timer <= 0)
+        {
+            Time.timeScale = 0;
+            loseScreen.SetActive(true);
+            loseWinText.text = losingText;
+        }
+        if (parallaxScrolling.counter == counterRequired)
+        {
+            Time.timeScale = 0;
+            loseScreen.SetActive(true);
+            loseWinText.text = winningText;
+        }
     }
 }
