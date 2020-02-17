@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    [Range(60f,300f)]
+    [Range(60f, 300f)]
     public float maxTimer;
     float timer;
     public Text timerText;
@@ -13,12 +14,16 @@ public class Timer : MonoBehaviour
     bool GameOver;
     ParallaxScrolling parallaxScrolling;
     public Text loseWinText;
-    [SerializeField]
-    string losingText;
-    [SerializeField]
-    string winningText;
+    public string losingText;
+    public string winningText;
     [Tooltip("Keep the value even always")]
     public int counterRequired;
+
+    private AudioSource audio_source_;
+    public AudioClip win_clip_;
+    public AudioClip lose_clip_;
+
+    private PlayerController player_controller_;
 
     void Awake()
     {
@@ -26,6 +31,14 @@ public class Timer : MonoBehaviour
         Time.timeScale = 1;
         loseScreen.SetActive(false);
         timer = maxTimer;
+
+        audio_source_ = GetComponent<AudioSource>();
+        player_controller_ = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+
+    private void Start()
+    {
+        audio_source_.Play();
     }
 
     public void ReduceTimer(float reductionValue)
@@ -35,21 +48,53 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
+        if (!GameOver) timer -= Time.deltaTime;
+
         string minutes = Mathf.Floor(timer / 60).ToString("00");
         string seconds = (timer % 60).ToString("00");
-        timerText.text = "Time Left: " + minutes + ":" + seconds ;
-        if (timer <= 0)
+        timerText.text = "Time Left: " + minutes + ":" + seconds;
+        if (timer <= 0 && !GameOver)
         {
-            Time.timeScale = 0;
+            SetLose();
+            //Time.timeScale = 0;
             loseScreen.SetActive(true);
             loseWinText.text = losingText;
+            GameOver = true;
         }
-        if (parallaxScrolling.counter == counterRequired)
+        if (parallaxScrolling.counter == counterRequired && !GameOver)
         {
-            Time.timeScale = 0;
+            SetWin();
+            //Time.timeScale = 0;
             loseScreen.SetActive(true);
             loseWinText.text = winningText;
+            GameOver = true;
         }
+
+        if (GameOver && Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    private void SetWin()
+    {
+        audio_source_.clip = win_clip_;
+        audio_source_.loop = false;
+        if (!audio_source_.isPlaying)
+        {
+            audio_source_.Play();
+        }
+        player_controller_.enabled = false;
+    }
+
+    private void SetLose()
+    {
+        audio_source_.clip = lose_clip_;
+        audio_source_.loop = false;
+        if (!audio_source_.isPlaying)
+        {
+            audio_source_.Play();
+        }
+        player_controller_.enabled = false;
     }
 }
