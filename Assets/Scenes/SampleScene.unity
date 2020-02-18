@@ -152,13 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4237fc38052a694ab84b24273b5f094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimer: 120
+  maxTimer: 60
   timerText: {fileID: 1645294444}
   loseScreen: {fileID: 871623985}
   loseWinText: {fileID: 237366758}
   losingText: You failed to save the Koala:( Game Over!!!!
   winningText: You saved the Koala
-  counterRequired: 16
+  counterRequired: 20
   win_clip_: {fileID: 8300000, guid: dbb5c5a23a7b0384ba0e256e178cd932, type: 3}
   lose_clip_: {fileID: 8300000, guid: 9a08f08cd764ff2498dc16e6ae62cb2f, type: 3}
 --- !u!4 &32710815
@@ -193,6 +193,8 @@ MonoBehaviour:
   - {fileID: 5785832692511271683, guid: 361d52f836e0a13438124da17f48006e, type: 3}
   - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
   - {fileID: 2819281131450891386, guid: f4635b3dacb163b49b1bc9ce260dc26d, type: 3}
+  - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
+  - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
 --- !u!82 &32710817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -515,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedHorizontal: 15
-  moveSpeedVertical: 10
+  moveSpeedVertical: 15
   circleCollider2D: {fileID: 238529913}
 --- !u!212 &238529910
 SpriteRenderer:

@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc915565685638a439864413dabc19aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reductionValue: 10
+  reductionValue: 5
 --- !u!82 &4050269283438355120
 AudioSource:
   m_ObjectHideFlags: 0
