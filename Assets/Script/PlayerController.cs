@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     private float verticalMove;
     public float moveSpeedVertical;
     private Vector3 moveDirection;
-
+    private bool trapped=false;
+    private int keyspam = 0;
+    public int spamnr;
 
     private Rigidbody2D rb2d;
     bool stateLock;
+    
 
     [SerializeField]
     CircleCollider2D circleCollider2D;
@@ -37,19 +40,37 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeedHorizontal;
-        verticalMove = -moveSpeedVertical;
+        if (trapped == false)
+        {
+            horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeedHorizontal;
+            verticalMove = -moveSpeedVertical;
 
-        moveDirection = new Vector2(horizontalMove, verticalMove);
+            moveDirection = new Vector2(horizontalMove, verticalMove);
 
-        transform.position += moveDirection * Time.deltaTime;
+            transform.position += moveDirection * Time.deltaTime;
+        }else
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                keyspam++;
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                keyspam++;
+            }
+            if (keyspam == spamnr)
+            {
+                trapped = false;
+                keyspam = 0;
+            }
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Obstacles")
+        if (collision.gameObject.tag == "Trap")
         {
-            //do something
+            trapped = true;
         }
     }
 

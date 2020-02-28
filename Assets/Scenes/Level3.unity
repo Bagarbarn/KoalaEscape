@@ -454,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeedHorizontal: 15
   moveSpeedVertical: 15
+  spamnr: 10
   circleCollider2D: {fileID: 540694949}
 --- !u!50 &540694951
 Rigidbody2D:
@@ -567,7 +568,7 @@ RectTransform:
   m_GameObject: {fileID: 693582801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 260427683}
   m_RootOrder: 0
@@ -605,10 +606,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 8
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 1
@@ -1012,7 +1013,7 @@ MonoBehaviour:
   - {fileID: 5785832692511271683, guid: 361d52f836e0a13438124da17f48006e, type: 3}
   - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
   - {fileID: 2819281131450891386, guid: f4635b3dacb163b49b1bc9ce260dc26d, type: 3}
-  - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
+  - {fileID: 7791957454751748565, guid: 3d13f30561d501d4b923b56494b9c97c, type: 3}
   - {fileID: 210347297725731607, guid: d7c1a5d6581ac964995b2f94092a5f6a, type: 3}
 --- !u!114 &1205033229
 MonoBehaviour:
@@ -1033,6 +1034,7 @@ MonoBehaviour:
   losingText: You failed to save the Koala:( Game Over!!!!
   winningText: You saved the Koala
   counterRequired: 20
+  nextscene: 
   win_clip_: {fileID: 8300000, guid: dbb5c5a23a7b0384ba0e256e178cd932, type: 3}
   lose_clip_: {fileID: 8300000, guid: 9a08f08cd764ff2498dc16e6ae62cb2f, type: 3}
 --- !u!4 &1205033230

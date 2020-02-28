@@ -159,6 +159,7 @@ MonoBehaviour:
   losingText: You failed to save the Koala:( Game Over!!!!
   winningText: You saved the Koala
   counterRequired: 20
+  nextscene: Level2
   win_clip_: {fileID: 8300000, guid: dbb5c5a23a7b0384ba0e256e178cd932, type: 3}
   lose_clip_: {fileID: 8300000, guid: 9a08f08cd764ff2498dc16e6ae62cb2f, type: 3}
 --- !u!4 &32710815
@@ -518,6 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeedHorizontal: 15
   moveSpeedVertical: 15
+  spamnr: 0
   circleCollider2D: {fileID: 238529913}
 --- !u!212 &238529910
 SpriteRenderer:
@@ -1247,7 +1249,7 @@ RectTransform:
   m_GameObject: {fileID: 1645294443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1430245561}
   m_RootOrder: 0

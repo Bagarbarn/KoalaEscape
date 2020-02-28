@@ -18,6 +18,8 @@ public class Timer : MonoBehaviour
     public string winningText;
     [Tooltip("Keep the value even always")]
     public int counterRequired;
+    public string nextscene;
+    public float targetTime;
 
     private AudioSource audio_source_;
     public AudioClip win_clip_;
@@ -39,6 +41,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         audio_source_.Play();
+        targetTime = 3f;
     }
 
     public void ReduceTimer(float reductionValue)
@@ -68,6 +71,13 @@ public class Timer : MonoBehaviour
             loseScreen.SetActive(true);
             loseWinText.text = winningText;
             GameOver = true;
+            
+            targetTime -= Time.deltaTime;
+
+            if (targetTime <= 0.0f)
+            {
+                SceneManager.LoadScene(nextscene);
+            }
         }
 
         if (GameOver && Input.GetKeyDown(KeyCode.R))
