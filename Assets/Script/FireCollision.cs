@@ -20,6 +20,11 @@ public class FireCollision : MonoBehaviour
         {
             audio_source_.Play();
             timer.ReduceTimer(reductionValue);
+            
+            if (reductionValue <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
