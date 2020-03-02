@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour
     public int counterRequired;
     public string nextscene;
     public float targetTime;
+    public bool lastlevel = false;
 
     private AudioSource audio_source_;
     public AudioClip win_clip_;
@@ -59,7 +60,7 @@ public class Timer : MonoBehaviour
         if (timer <= 0 && !GameOver)
         {
             SetLose();
-            //Time.timeScale = 0;
+           
             loseScreen.SetActive(true);
             loseWinText.text = losingText;
             GameOver = true;
@@ -67,12 +68,17 @@ public class Timer : MonoBehaviour
         if (parallaxScrolling.counter == counterRequired && !GameOver)
         {
             SetWin();
-            //Time.timeScale = 0;
+            
             loseScreen.SetActive(true);
             loseWinText.text = winningText;
-            GameOver = true;
-            
+            if (lastlevel == true)
+            {
+               GameOver = true;
+            }
+
+
             targetTime -= Time.deltaTime;
+           
 
             if (targetTime <= 0.0f)
             {

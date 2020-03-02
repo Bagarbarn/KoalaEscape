@@ -1035,6 +1035,8 @@ MonoBehaviour:
   winningText: You saved the Koala
   counterRequired: 20
   nextscene: 
+  targetTime: 0
+  lastlevel: 1
   win_clip_: {fileID: 8300000, guid: dbb5c5a23a7b0384ba0e256e178cd932, type: 3}
   lose_clip_: {fileID: 8300000, guid: 9a08f08cd764ff2498dc16e6ae62cb2f, type: 3}
 --- !u!4 &1205033230

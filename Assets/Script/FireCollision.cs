@@ -7,9 +7,10 @@ public class FireCollision : MonoBehaviour
     Timer timer;
     public float reductionValue;
     private AudioSource audio_source_;
-
+    public Renderer rend;
     void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
         timer = FindObjectOfType<Timer>();
         audio_source_ = GetComponent<AudioSource>();
     }
@@ -23,7 +24,8 @@ public class FireCollision : MonoBehaviour
             
             if (reductionValue <= -1)
             {
-                gameObject.SetActive(false);
+                rend.enabled = false;
+                
             }
         }
     }

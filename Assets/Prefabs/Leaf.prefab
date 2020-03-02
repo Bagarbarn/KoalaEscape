@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reductionValue: -5
+  rend: {fileID: 7020757523546261994}
 --- !u!82 &3851266447044838709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eda247b5f45ad24449e0835230844c93, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f0ad3b0304c8f3547a0a10b353e076cb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
