@@ -157,7 +157,7 @@ MonoBehaviour:
   loseScreen: {fileID: 871623985}
   loseWinText: {fileID: 237366758}
   losingText: You failed to save the Koala:( Game Over!!!!
-  winningText: You saved the Koala
+  winningText: First level completed!
   counterRequired: 20
   nextscene: Level2
   targetTime: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x_boundaries_: {x: -6.75, y: 6.75}
-  distance_from_player_: 7
+  distance_from_player_: 10
   obstacle_instances_:
   - {fileID: 5785832692511271683, guid: 361d52f836e0a13438124da17f48006e, type: 3}
   - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}

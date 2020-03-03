@@ -1180,13 +1180,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x_boundaries_: {x: -6.75, y: 6.75}
-  distance_from_player_: 7
+  distance_from_player_: 9
   obstacle_instances_:
   - {fileID: 5785832692511271683, guid: 361d52f836e0a13438124da17f48006e, type: 3}
   - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
   - {fileID: 2819281131450891386, guid: f4635b3dacb163b49b1bc9ce260dc26d, type: 3}
   - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
   - {fileID: 210347297725731607, guid: d7c1a5d6581ac964995b2f94092a5f6a, type: 3}
+  - {fileID: 2819281131450891386, guid: f4635b3dacb163b49b1bc9ce260dc26d, type: 3}
+  - {fileID: 1129363201958229138, guid: df7a0487b86ee2242af119c6a9c06fa8, type: 3}
+  - {fileID: 5785832692511271683, guid: 361d52f836e0a13438124da17f48006e, type: 3}
 --- !u!114 &1653863058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,9 +1207,11 @@ MonoBehaviour:
   loseScreen: {fileID: 670292910}
   loseWinText: {fileID: 734750756}
   losingText: You failed to save the Koala:( Game Over!!!!
-  winningText: You saved the Koala
+  winningText: Second level completed!
   counterRequired: 20
   nextscene: Level3
+  targetTime: 0
+  lastlevel: 0
   win_clip_: {fileID: 8300000, guid: dbb5c5a23a7b0384ba0e256e178cd932, type: 3}
   lose_clip_: {fileID: 8300000, guid: 9a08f08cd764ff2498dc16e6ae62cb2f, type: 3}
 --- !u!4 &1653863059
@@ -1477,7 +1482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedHorizontal: 15
-  moveSpeedVertical: 15
+  moveSpeedVertical: 18
   spamnr: 0
   circleCollider2D: {fileID: 2057201434}
 --- !u!50 &2057201436
