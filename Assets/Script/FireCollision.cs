@@ -25,6 +25,7 @@ public class FireCollision : MonoBehaviour
             if (reductionValue <= -1)
             {
                 rend.enabled = false;
+
                 
             }
         }
