@@ -10,13 +10,18 @@ public class PlayerController : MonoBehaviour
     private float verticalMove;
     public float moveSpeedVertical;
     private Vector3 moveDirection;
-    private bool trapped=false;
+    private bool trapped = false;
     private int keyspam = 0;
     public int spamnr;
 
     private Rigidbody2D rb2d;
     bool stateLock;
-    
+
+    //ALEX CAM
+    float lockX;
+    public Transform cam;
+    //ALEX CAM END
+
 
     [SerializeField]
     CircleCollider2D circleCollider2D;
@@ -48,21 +53,29 @@ public class PlayerController : MonoBehaviour
             moveDirection = new Vector2(horizontalMove, verticalMove);
 
             transform.position += moveDirection * Time.deltaTime;
-        }else
+
+            //ALEX CAMERA
+            lockX = Mathf.Clamp(cam.position.x, 0, 0);
+            cam.position = new Vector3(lockX, cam.position.y, cam.position.z);
+            //ALEX CAMERA END
+        }
+
+        else
+
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            //ALEX INTERFERENCE
+            var dir = Input.GetAxis("Horizontal");
+            if (dir !=0)
             {
                 keyspam++;
             }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                keyspam++;
-            }
+
             if (keyspam == spamnr)
             {
                 trapped = false;
                 keyspam = 0;
             }
+            //ALEX INTERFERENCE END
         }
     }
 

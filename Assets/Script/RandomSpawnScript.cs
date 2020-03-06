@@ -32,7 +32,8 @@ public class RandomSpawnScript : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > nextSpawn) { //if time has come
+        if (Time.time > nextSpawn) 
+        { //if time has come
             whatToSpawn = Random.Range(0, obstacles.Length); //Define random value between 1 and 5 (6 is exclusive)
             Debug.Log(whatToSpawn); //Display it's value in console  
             randX = Random.Range(-4f, 4f);
