@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireCollision : MonoBehaviour
+public class ObjectCollision : MonoBehaviour
 {
     Timer timer;
-    public float reductionValue;
+    public int addedValue = 0;
+    public bool hideObjectOnCollision = false;
     private AudioSource audio_source_;
     public Renderer rend;
     void Start()
@@ -19,14 +20,13 @@ public class FireCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Collision");
             audio_source_.Play();
-            timer.ReduceTimer(reductionValue);
-            
-            if (reductionValue <= -1)
+            timer.AddTime(addedValue);
+            PlayerController.Instance.PlayEffect(addedValue);
+            if (hideObjectOnCollision)
             {
                 rend.enabled = false;
-
-                
             }
         }
     }

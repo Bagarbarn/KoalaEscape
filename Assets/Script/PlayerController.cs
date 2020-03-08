@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
     private bool trapped = false;
     private int keyspam = 0;
     public int spamnr;
-
+    public Pooler timeEffectPool;
     private Rigidbody2D rb2d;
     bool stateLock;
+
+
+    private static PlayerController instance;
 
     //ALEX CAM
     float lockX;
@@ -26,8 +29,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     CircleCollider2D circleCollider2D;
 
-    void Start()
+    public float MoveSpeedVertical { get => moveSpeedVertical; set => moveSpeedVertical = value; }
+    public static PlayerController Instance { get => instance; set => instance = value; }
+
+
+    public float startYForEffect = 2.2f;
+    public float endYForEffect = 3.2f;
+
+    void Awake()
     {
+        if (instance == null) instance = this;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -42,6 +53,13 @@ public class PlayerController : MonoBehaviour
     //    //stateLock = true;
     //    //circleCollider2D.enabled = false;
     //    //StartCoroutine("Jump");
+
+    public void PlayEffect(int value)
+    {
+        TimeChangeEffect timeeffect = timeEffectPool.Get(true).GetComponent<TimeChangeEffect>();
+        string valuesent = value > 0 ? "+" + value + "s" :  value + "s";
+        timeeffect.ShowEffect(valuesent, startYForEffect, endYForEffect);
+    }
 
     void Update()
     {

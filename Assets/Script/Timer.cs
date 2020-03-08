@@ -1,116 +1,176 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using TMPro;
+using System;
 
-public class Timer : MonoBehaviour
+public enum TimerType
 {
-    [Range(60f, 300f)]
-    public float maxTimer;
-    float timer;
-    public Text timerText;
-    public GameObject loseScreen;
-    bool GameOver;
-    ParallaxScrolling parallaxScrolling;
-    public Text loseWinText;
-    public string losingText;
-    public string winningText;
-    [Tooltip("Keep the value even always")]
-    public int counterRequired;
-    public string nextscene;
-    public float targetTime;
-    public bool lastlevel = false;
+    Increment,
+    Decrement
+}
 
-    private AudioSource audio_source_;
-    public AudioClip win_clip_;
-    public AudioClip lose_clip_;
+public class Timer : MonoBehaviour {
+    public TextMeshProUGUI timeText;
+    public UnityEvent onTimeStart;
+    public UnityEvent onTimeEnd;
+    private TimerType timerTimerType;
+    DateTime startTime;
+    public int startTimeSeconds = 60;
+    public bool startOnAwake = false;
+    public bool TimerWorking = false;
 
-    private PlayerController player_controller_;
+    public string prefix = "Time: ";
+    public string suffix = "";
+    public int gameSeconds = 0;
 
-    void Awake()
+    public int totalTime = 0;
+
+    public int mins = 0;
+    public int seconds = 0;
+    public int timeScoreCounter = 0;
+
+    private int step = 1;
+    public static Timer Instance;
+
+    public TimerType TimerTimerType
     {
-        parallaxScrolling = FindObjectOfType<ParallaxScrolling>();
-        Time.timeScale = 1;
-        loseScreen.SetActive(false);
-        timer = maxTimer;
-
-        audio_source_ = GetComponent<AudioSource>();
-        player_controller_ = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    }
-
-    private void Start()
-    {
-        audio_source_.Play();
-        targetTime = 3f;
-    }
-
-    public void ReduceTimer(float reductionValue)
-    {
-        timer -= reductionValue;
-    }
-
-    void Update()
-    {
-        if (!GameOver) timer -= Time.deltaTime;
-
-        string minutes = Mathf.Floor(timer / 60).ToString("00");
-        string seconds = (timer % 60).ToString("00");
-        timerText.text = "Time Left: " + minutes + ":" + seconds;
-        if (timer <= 0 && !GameOver)
+        get
         {
-            SetLose();
-           
-            loseScreen.SetActive(true);
-            loseWinText.text = losingText;
-            GameOver = true;
+            return timerTimerType;
         }
-        if (parallaxScrolling.counter == counterRequired && !GameOver)
+
+        set
         {
-            SetWin();
-            
-            loseScreen.SetActive(true);
-            loseWinText.text = winningText;
-            if (lastlevel == true)
+            timerTimerType = value;
+            switch (value)
             {
-               GameOver = true;
-            }
-
-
-            targetTime -= Time.deltaTime;
-           
-
-            if (targetTime <= 0.0f)
-            {
-                SceneManager.LoadScene(nextscene);
+                case TimerType.Increment:
+                    step = 1;
+                    break;
+                case TimerType.Decrement:
+                    step = -1; 
+                    break;
             }
         }
+    }
 
-        if (GameOver && Input.GetKeyDown(KeyCode.R))
+    private void Awake()
+    {
+        
+        //timeScoreCounter = 
+        if (Instance == null) Instance = this;
+        TimerTimerType = TimerType.Decrement;
+
+        if (timeText == null) timeText = this.GetComponent<TextMeshProUGUI>();
+        if (timeText == null) timeText = this.GetComponentInChildren<TextMeshProUGUI>();
+        if (timeText == null) Debug.LogError("No Text on the object");
+        if (startOnAwake)
         {
-            SceneManager.LoadScene("MainMenu");
+            StartTimer(startTimeSeconds);
         }
     }
 
-    private void SetWin()
+    public void StopTimer()
     {
-        audio_source_.clip = win_clip_;
-        audio_source_.loop = false;
-        if (!audio_source_.isPlaying)
-        {
-            audio_source_.Play();
-        }
-        player_controller_.enabled = false;
+        TimeEnded();
     }
 
-    private void SetLose()
+
+    public void AddTime(int timeAdded = 0)
     {
-        audio_source_.clip = lose_clip_;
-        audio_source_.loop = false;
-        if (!audio_source_.isPlaying)
+        gameSeconds += timeAdded;
+        if (gameSeconds <= 0) gameSeconds = 1;
+        CalculateTime();
+    }
+    public void StartTimer(int totalSeconds,TimerType type = TimerType.Decrement)
+    {
+        TimerWorking = true;
+        startTime = DateTime.Now;
+        gameSeconds = totalSeconds/*+3*/;
+        TimerTimerType = type;
+
+        CalculateTime();
+        StartCoroutine(TimeTick());
+        totalTime = totalSeconds - 3;
+        timeScoreCounter = 0;
+
+        onTimeStart?.Invoke();
+    }
+
+    
+
+    private IEnumerator TimeTick()
+    {
+        while (true)
         {
-            audio_source_.Play();
+            gameSeconds += step;
+
+            if (TimerTimerType == TimerType.Decrement)
+            {
+                if (timeScoreCounter < totalTime)
+                {
+                    timeScoreCounter += 1;
+                }
+            }
+            CalculateTime();
+
+            if (TimerTimerType == TimerType.Decrement)
+            {
+                if (gameSeconds == 0) TimeEnded();
+            }
+               
+            yield return new WaitForSeconds(1);
+
         }
-        player_controller_.enabled = false;
+    }
+
+    private void CalculateTime()
+    {
+        mins = gameSeconds / 60;
+        seconds = gameSeconds - mins * 60;
+        UpdateText(seconds, mins);
+    }
+
+    public void TimeEnded()
+    {
+        //TimerWorking = false;
+        //Debug.Log("Time ended");
+        onTimeEnd.Invoke();
+
+
+        StopAllCoroutines();
+        CalculateTime();
+    }
+
+    string minsString = "";
+    string secsString = "";
+    string timeString = "";
+    private void UpdateText(int seconds, int mins)
+    {
+        minsString = mins.ToString();
+        if (seconds < 0) seconds = 0;
+        secsString = seconds.ToString();
+
+        if (mins < 10) minsString = "0" + mins.ToString();
+        if (seconds < 10) secsString = "0" + seconds.ToString();
+        timeString = prefix + (minsString + ":" + secsString) + suffix;
+        timeText.text = timeString;
+    }
+
+    private void TimerNotWorking()
+    {
+        timeText.text = " ";
+    }
+
+
+    private void Update()
+    {
+        if (!TimerWorking)
+        {
+            TimerNotWorking();
+        }
     }
 }
