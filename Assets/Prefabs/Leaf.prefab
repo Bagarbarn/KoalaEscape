@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7020757523546261994}
   - component: {fileID: 2081805582095827911}
   - component: {fileID: 857718244463092163}
-  - component: {fileID: 3327867036462325493}
   - component: {fileID: 3851266447044838709}
+  - component: {fileID: 1883858726364568793}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 210347297725731607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.02291, y: -72.62485, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.05}
+  m_LocalScale: {x: 0.114429064, y: 0.114429064, z: 0.028607266}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -132,20 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.8075247, y: 8.013229}
   m_EdgeRadius: 0
---- !u!114 &3327867036462325493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210347297725731607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc915565685638a439864413dabc19aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reductionValue: -5
-  rend: {fileID: 7020757523546261994}
 --- !u!82 &3851266447044838709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -242,3 +228,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1883858726364568793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210347297725731607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440c3d9d15f79ea419f48d8ad7907d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addedValue: 10
+  hideObjectOnCollision: 1
+  rend: {fileID: 0}

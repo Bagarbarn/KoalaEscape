@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
 
     float horizontalMove = 0f;
     //float verticalMove = 0f;
-    // Start is called before the first frame update
+
     void Start()
     {
         moveDirection = Vector3.down;
@@ -30,11 +30,5 @@ public class Movement : MonoBehaviour
         moveDirection.x = horizontalMove;
 
         transform.position += (moveDirection * moveSpeedHorizontal * Time.deltaTime);
-    }
-
-    void FixedUpdate()
-    {
-        ///controller.Move(horizontalMove * Time.fixedDeltaTime);
-
     }
 }
