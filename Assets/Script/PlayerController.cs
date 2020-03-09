@@ -45,8 +45,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        int dir = Mathf.RoundToInt(Input.GetAxis("Horizontal"));
-        //Debug.Log("side " + dir);
         if (trapped == false)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeedHorizontal;
@@ -65,20 +63,14 @@ public class PlayerController : MonoBehaviour
         else
 
         {
-
             //ALEX INTERFERENCE
-            
-           /* float dir = Input.GetAxis("Horizontal");
-            Debug.Log("side " + dir);*/
+            var dir = Input.GetAxis("Horizontal");
             if (dir !=0)
             {
-                
                 keyspam++;
-                Debug.Log(keyspam);
-
             }
-            
-            if (keyspam >= spamnr)
+
+            if (keyspam == spamnr)
             {
                 trapped = false;
                 keyspam = 0;

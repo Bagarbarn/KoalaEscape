@@ -141,12 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1129363201958229138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 440c3d9d15f79ea419f48d8ad7907d03, type: 3}
+  m_Script: {fileID: 11500000, guid: dc915565685638a439864413dabc19aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addedValue: -10
-  hideObjectOnCollision: 1
-  rend: {fileID: 0}
+  reductionValue: 5
 --- !u!82 &4050269283438355120
 AudioSource:
   m_ObjectHideFlags: 0
