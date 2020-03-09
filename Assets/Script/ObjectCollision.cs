@@ -20,14 +20,15 @@ public class ObjectCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Collision");
+           // Debug.Log("Collision");
+
             audio_source_.Play();
-            timer.AddTime(addedValue);
+
             PlayerController.Instance.PlayEffect(addedValue);
-            if (hideObjectOnCollision)
-            {
-                rend.enabled = false;
-            }
+
+            if (hideObjectOnCollision) rend.enabled = false;
+
+            timer.AddTime(addedValue);
         }
     }
 }
