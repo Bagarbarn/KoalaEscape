@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440c3d9d15f79ea419f48d8ad7907d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addedValue: -10
+  addedValue: -5
   hideObjectOnCollision: 1
   rend: {fileID: 0}
 --- !u!82 &4050269283438355120

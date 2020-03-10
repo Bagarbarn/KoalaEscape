@@ -8972,6 +8972,11 @@ PrefabInstance:
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 2008925451}
+    - target: {fileID: 69498021896345175, guid: 37cf7ea5c24c26d4d9abe089db81fc66,
+        type: 3}
+      propertyPath: startTimeSeconds
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37cf7ea5c24c26d4d9abe089db81fc66, type: 3}
 --- !u!1001 &1117812133
@@ -11295,7 +11300,6 @@ GameObject:
   - component: {fileID: 1758383634}
   - component: {fileID: 1758383636}
   - component: {fileID: 1758383635}
-  - component: {fileID: 1758383637}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -11440,35 +11444,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758383633}
   m_CullTransparentMesh: 0
---- !u!114 &1758383637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758383633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae96400d12000000cf96400d1200000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
-  onTimeStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onTimeEnd:
-    m_PersistentCalls:
-      m_Calls: []
-  startTimeSeconds: 10
-  startOnAwake: 1
-  TimerWorking: 1
-  prefix: 'Time: '
-  suffix: 
-  gameSeconds: 0
-  totalTime: 0
-  mins: 0
-  seconds: 0
-  timeScoreCounter: 0
 --- !u!1001 &1797517305
 PrefabInstance:
   m_ObjectHideFlags: 0
