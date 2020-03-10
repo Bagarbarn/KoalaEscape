@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public enum TimerType
 {
@@ -34,6 +35,11 @@ public class Timer : MonoBehaviour {
 
     private int step = 1;
     public static Timer Instance;
+
+    // LOSE SCREEN
+    public GameObject loseScreen;
+    //LOSE SCREEN END
+    
 
     public TimerType TimerTimerType
     {
@@ -140,10 +146,25 @@ public class Timer : MonoBehaviour {
         //Debug.Log("Time ended");
         onTimeEnd.Invoke();
 
+        
 
         StopAllCoroutines();
+
+        //LOSE SCREEN 
+        StartCoroutine("Lose");
+        //LOSE SCREEN END
+
         CalculateTime();
     }
+    #region loseScreen
+    IEnumerator Lose ()
+    {
+        loseScreen.SetActive(true);
+        yield return new WaitForSeconds(3);
+        loseScreen.SetActive(false);
+        SceneManager.LoadScene(0);
+    }
+    #endregion loseScreen
 
     string minsString = "";
     string secsString = "";
