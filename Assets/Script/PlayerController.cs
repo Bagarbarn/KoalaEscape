@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     public Pooler timeEffectPool;
     private Rigidbody2D rb2d;
     bool stateLock;
-
+    private bool is_underground_ = false;
+    public ParticleSystem dust_; 
 
     private static PlayerController instance;
 
@@ -67,7 +68,15 @@ public class PlayerController : MonoBehaviour
 
         if (trapped == false)
         {
-            horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeedHorizontal;
+            if (!is_underground_)
+            {
+                horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeedHorizontal;
+            }
+            else
+            {
+                horizontalMove = 0.0f;
+            }
+           
             verticalMove = -moveSpeedVertical;
 
             moveDirection = new Vector2(horizontalMove, verticalMove);
@@ -110,7 +119,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    public void SetUnderground(bool is_underground) {
+        is_underground_ = is_underground;
+        GetComponent<SpriteRenderer>().enabled = !is_underground_;
+        GetComponent<CircleCollider2D>().isTrigger = is_underground_;
+        if (is_underground_ && !dust_.isPlaying) dust_.Play();
+        else dust_.Stop();
+    }
+    public bool IsUnderground() { return is_underground_; }
 }
 
 //public IEnumerator Jump()

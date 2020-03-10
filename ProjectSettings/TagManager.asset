@@ -7,6 +7,10 @@ TagManager:
   - Jump
   - Background
   - Trap
+  - Black Hole Entrance
+  - Black Hole Exit
+  - Net Trigger
+  - Net
   layers:
   - Default
   - TransparentFX

@@ -240,6 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440c3d9d15f79ea419f48d8ad7907d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addedValue: 5
+  addedValue: 10
   hideObjectOnCollision: 1
   rend: {fileID: 0}

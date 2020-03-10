@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using UnityEngine.SceneManagement;
 
 public enum TimerType
 {
