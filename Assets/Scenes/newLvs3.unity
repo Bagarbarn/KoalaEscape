@@ -11295,6 +11295,7 @@ GameObject:
   - component: {fileID: 1758383634}
   - component: {fileID: 1758383636}
   - component: {fileID: 1758383635}
+  - component: {fileID: 1758383637}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -11316,10 +11317,10 @@ RectTransform:
   m_Father: {fileID: 1672351965}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 178}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.0035552979, y: -46.99199}
+  m_SizeDelta: {x: 694.58, y: 205.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758383635
 MonoBehaviour:
@@ -11405,7 +11406,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.18786986, y: -1.0458087, z: 3.6900795, w: -1.0298536}
   m_textInfo:
     textComponent: {fileID: 1758383635}
     characterCount: 5
@@ -11439,6 +11440,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758383633}
   m_CullTransparentMesh: 0
+--- !u!114 &1758383637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758383633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae96400d12000000cf96400d1200000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 0}
+  onTimeStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onTimeEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  startTimeSeconds: 10
+  startOnAwake: 1
+  TimerWorking: 1
+  prefix: 'Time: '
+  suffix: 
+  gameSeconds: 0
+  totalTime: 0
+  mins: 0
+  seconds: 0
+  timeScoreCounter: 0
 --- !u!1001 &1797517305
 PrefabInstance:
   m_ObjectHideFlags: 0

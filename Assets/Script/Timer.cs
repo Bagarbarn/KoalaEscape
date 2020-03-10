@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
@@ -143,7 +144,7 @@ public class Timer : MonoBehaviour {
     public void TimeEnded()
     {
         //TimerWorking = false;
-        //Debug.Log("Time ended");
+        Debug.Log("Time ended");
         onTimeEnd.Invoke();
 
         
@@ -194,4 +195,5 @@ public class Timer : MonoBehaviour {
             TimerNotWorking();
         }
     }
+
 }
