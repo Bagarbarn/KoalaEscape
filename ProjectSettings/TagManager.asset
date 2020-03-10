@@ -11,6 +11,9 @@ TagManager:
   - Black Hole Exit
   - Net Trigger
   - Net
+  - Speed Accumulator 1
+  - Speed Accumulator 2
+  - Speed Accumulator 3
   layers:
   - Default
   - TransparentFX

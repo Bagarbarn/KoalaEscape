@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     bool stateLock;
     private bool is_underground_ = false;
-    public ParticleSystem dust_; 
+    public ParticleSystem dust_;
+    public float firstAccumulatedSpeed;
+    public float secondAccumulatedSpeed;
+    public float thirdAccumulatedSpeed;
 
     private static PlayerController instance;
 
@@ -117,6 +120,20 @@ public class PlayerController : MonoBehaviour
         {
             trapped = true;
         }
+
+        if (collision.gameObject.tag == "Speed Accumulator 1")
+        {
+            moveSpeedVertical = firstAccumulatedSpeed;
+        }
+        else if (collision.gameObject.tag == "Speed Accumulator 2")
+        {
+            moveSpeedVertical = secondAccumulatedSpeed;
+        }
+        else if (collision.gameObject.tag == "Speed Accumulator 3")
+        {
+            moveSpeedVertical = thirdAccumulatedSpeed;
+        }
+
     }
 
     public void SetUnderground(bool is_underground) {
@@ -127,6 +144,8 @@ public class PlayerController : MonoBehaviour
         else dust_.Stop();
     }
     public bool IsUnderground() { return is_underground_; }
+
+   
 }
 
 //public IEnumerator Jump()
