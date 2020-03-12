@@ -116,22 +116,28 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Trap")
+        GameObject collided_object = collision.gameObject;
+        if (collided_object.tag == "Trap" && !is_underground_)
         {
             trapped = true;
         }
 
-        if (collision.gameObject.tag == "Speed Accumulator 1")
+        if (collided_object.tag == "Speed Accumulator 1")
         {
             moveSpeedVertical = firstAccumulatedSpeed;
         }
-        else if (collision.gameObject.tag == "Speed Accumulator 2")
+        else if (collided_object.tag == "Speed Accumulator 2")
         {
             moveSpeedVertical = secondAccumulatedSpeed;
         }
-        else if (collision.gameObject.tag == "Speed Accumulator 3")
+        else if (collided_object.tag == "Speed Accumulator 3")
         {
             moveSpeedVertical = thirdAccumulatedSpeed;
+        }
+
+        if(collided_object.tag == "Finish Line")
+        {
+            SceneManager.LoadScene("Win Scene");
         }
 
     }
