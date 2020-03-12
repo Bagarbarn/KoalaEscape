@@ -36,6 +36,7 @@ public class Net : MonoBehaviour
 
         if (collided_object.tag == "Player")
         {
+            horizontal_move_ = 0f;
             if (tutorial_text_ != null)
             {
                 tutorial_text_.gameObject.SetActive(true);
@@ -55,4 +56,8 @@ public class Net : MonoBehaviour
             }
         }
     }
+
+   
+
+
 }
