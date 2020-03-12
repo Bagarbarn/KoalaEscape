@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 2829413494985683772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2829413494570102209}
   m_RootOrder: 1
@@ -121,8 +121,8 @@ SpriteRenderer:
   m_SortingLayerID: -1241744381
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 40425fee49d905146ba59e0b3c53d7a1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,9 +145,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.24569559, y: -0.47356987}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 1.8718019
 --- !u!114 &6008704485423332988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 2829413495560430644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 6.8, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2829413494570102209}
   m_RootOrder: 0
@@ -235,8 +235,8 @@ SpriteRenderer:
   m_SortingLayerID: -1241744381
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 40425fee49d905146ba59e0b3c53d7a1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -259,9 +259,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.000000014901161}
+  m_Offset: {x: -0.15794373, y: -0.31571245}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 1.8199978
 --- !u!114 &7833515270845257069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +336,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451106, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451106, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451107, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451107, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451107, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7383769446068451108, guid: 2edf6b786ef4e6346b6d15bad8b12583,
         type: 3}
       propertyPath: m_Name
@@ -409,6 +434,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451106, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451106, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451107, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451107, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383769446068451107, guid: 2edf6b786ef4e6346b6d15bad8b12583,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7383769446068451108, guid: 2edf6b786ef4e6346b6d15bad8b12583,
         type: 3}
